@@ -1,32 +1,24 @@
-                              _________   _____ __________    _____   
-  ____ ______   ____   ____  /   _____/  /  _  \\______   \  /  _  \  
- /  _ \\____ \_/ __ \ /    \ \_____  \  /  /_\  \|       _/ /  /_\  \ 
-(  <_> )  |_> >  ___/|   |  \/        \/    |    \    |   \/    |    \
- \____/|   __/ \___  >___|  /_______  /\____|__  /____|_  /\____|__  /
-       |__|        \/     \/        \/         \/       \/         \/ 
+\__    ___/___________    ____   ______ _____ |__|  |   ____   ____ |__| ____   \_   ___ \  ____   _____   _____  __ __  ____ |__|/  |_ ___.__.
+  |    |  \_  __ \__  \  /    \ /  ___//     \|  |  | _/ __ \ /    \|  |/  _ \  /    \  \/ /  _ \ /     \ /     \|  |  \/    \|  \   __<   |  |
+  |    |   |  | \// __ \|   |  \\___ \|  Y Y  \  |  |_\  ___/|   |  \  (  <_> ) \     \___(  <_> )  Y Y  \  Y Y  \  |  /   |  \  ||  |  \___  |
+  |____|   |__|  (____  /___|  /____  >__|_|  /__|____/\___  >___|  /__|\____/   \______  /\____/|__|_|  /__|_|  /____/|___|  /__||__|  / ____|
+                      \/     \/     \/      \/             \/     \/                    \/             \/      \/           \/          \/     
+________    _________ ________             .____          ___.    ____ ___________    ___________    .___.__  __  .__                          
+\_____  \  /   _____//  _____/  ____  ____ |    |   _____ \_ |__ |    |   \______ \   \_   _____/  __| _/|__|/  |_|__| ____   ____             
+ /   |   \ \_____  \/   \  ____/ __ \/  _ \|    |   \__  \ | __ \|    |   /|    |  \   |    __)_  / __ | |  \   __\  |/  _ \ /    \            
+/    |    \/        \    \_\  \  ___(  <_> )    |___ / __ \| \_\ \    |  / |    `   \  |        \/ /_/ | |  ||  | |  (  <_> )   |  \           
+\_______  /_______  /\______  /\___  >____/|_______ (____  /___  /______/ /_______  / /_______  /\____ | |__||__| |__|\____/|___|  /           
+        \/        \/        \/     \/              \/    \/    \/                 \/          \/      \/                         \/            
 
-		    	FRAMEWORK
--------------------------------------------------------------------------------------
-OSGeoLabUD 2016 - 2018
+OSGeoLabUD 2018
 
-Marco de desarrollo experimental escrito en lenguaje PHP.
+Sistema de Simulación para Transmilenio
 
 Descripción
 -----------------
 
-openSARA, Sistema para la Articulación Rápida de Aplicaciones (System for Addressing the Rapid development of Applications),
-es un marco de trabajo para el desarrollo de aplicaciones orientadas a la web.
-
-Está escrito en lenguaje PHP y propende por una arquitectura dividida en capas.
-
-Instalación
------------------
-openSARA requiere para su funcionamiento un servidor web, preferiblemente Apache HTTP (con soporte para PHP), un motor de bases de datos - 
-soporta PostgreSQL, MySQL, Oracle o cualquier otra a través de PDO (PHP Data Objects).
-
-Aspectos de seguridad
------------------------------------
-Se recomienda que el acceso a las carpetas de openSARA dea deshabilitado dede la configuración del servidor web.
+Transmilenio Community es un proyecto académico para mostrar aspectos relacionados con el desarrollo de aplicaciones Web, aplicando los conceptos de modularidad, 
+reciclaje de código y patrones de diseño.
 
 Derechos de Autor
 ------------------
