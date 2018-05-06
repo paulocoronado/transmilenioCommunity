@@ -1,29 +1,11 @@
-\__    ___/___________    ____   ______ _____ |__|  |   ____   ____ |__| ____   \_   ___ \  ____   _____   _____  __ __  ____ |__|/  |_ ___.__.
-  |    |  \_  __ \__  \  /    \ /  ___//     \|  |  | _/ __ \ /    \|  |/  _ \  /    \  \/ /  _ \ /     \ /     \|  |  \/    \|  \   __<   |  |
-  |    |   |  | \// __ \|   |  \\___ \|  Y Y  \  |  |_\  ___/|   |  \  (  <_> ) \     \___(  <_> )  Y Y  \  Y Y  \  |  /   |  \  ||  |  \___  |
-  |____|   |__|  (____  /___|  /____  >__|_|  /__|____/\___  >___|  /__|\____/   \______  /\____/|__|_|  /__|_|  /____/|___|  /__||__|  / ____|
-                      \/     \/     \/      \/             \/     \/                    \/             \/      \/           \/          \/     
-________    _________ ________             .____          ___.    ____ ___________    ___________    .___.__  __  .__                          
-\_____  \  /   _____//  _____/  ____  ____ |    |   _____ \_ |__ |    |   \______ \   \_   _____/  __| _/|__|/  |_|__| ____   ____             
- /   |   \ \_____  \/   \  ____/ __ \/  _ \|    |   \__  \ | __ \|    |   /|    |  \   |    __)_  / __ | |  \   __\  |/  _ \ /    \            
-/    |    \/        \    \_\  \  ___(  <_> )    |___ / __ \| \_\ \    |  / |    `   \  |        \/ /_/ | |  ||  | |  (  <_> )   |  \           
-\_______  /_______  /\______  /\___  >____/|_______ (____  /___  /______/ /_______  / /_______  /\____ | |__||__| |__|\____/|___|  /           
-        \/        \/        \/     \/              \/    \/    \/                 \/          \/      \/                         \/            
-
-OSGeoLabUD 2018
+#Transmilenio Community
+##OSGeoLabUD Edition
+2018
 
 Sistema de Simulación para Transmilenio
 
-Descripción
------------------
+##Descripción
+
 
 Transmilenio Community es un proyecto académico para mostrar aspectos relacionados con el desarrollo de aplicaciones Web, aplicando los conceptos de modularidad, 
 reciclaje de código y patrones de diseño.
-
-Derechos de Autor
-------------------
-openSARA is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either
-version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
