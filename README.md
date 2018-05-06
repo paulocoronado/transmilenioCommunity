@@ -1,10 +1,10 @@
-#Transmilenio Community
-##OSGeoLabUD Edition
+# Transmilenio Community
+## OSGeoLabUD Edition
 2018
 
 Sistema de Simulación para Transmilenio
 
-##Descripción
+## Descripción
 
 
 Transmilenio Community es un proyecto académico para mostrar aspectos relacionados con el desarrollo de aplicaciones Web, aplicando los conceptos de modularidad, 
