@@ -1,6 +1,6 @@
 <?php
 
-namespace development\gestionBloques;
+namespace development\gestionPaginas;
 
 // Evitar un acceso directo a este archivo
 if (! isset ( $GLOBALS ["autorizado"] )) {
@@ -73,7 +73,6 @@ class Bloque implements \Bloque {
 			$this->miFuncion->setLenguaje ( $this->miLenguaje );
                         
                         if (! isset ( $_REQUEST ['action'] )) {
-				
 				$this->miFrontera->frontera ();
 			} else {
 				
