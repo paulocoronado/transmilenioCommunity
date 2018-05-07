@@ -11,13 +11,14 @@ INSERT INTO <nombre>pagina (id_pagina, nombre, descripcion, modulo, nivel, param
 INSERT INTO <nombre>pagina (id_pagina, nombre, descripcion, modulo, nivel, parametro) VALUES (-10, 'gestionBloques', 'Módulo de gestión de bloques (CRUD)', 'development', 0 ,'jquery=true&jquery-ui=true&jquery-validation=true' );
 INSERT INTO <nombre>pagina (id_pagina, nombre, descripcion, modulo, nivel, parametro) VALUES (-11, 'gestionConexiones', 'Módulo de gestión de conexiones bases de datos (CRUD)', 'development', 0 ,'jquery=true&jquery-ui=true&jquery-validation=true' );
 INSERT INTO <nombre>pagina (id_pagina, nombre, descripcion, modulo, nivel, parametro) VALUES (-12, 'gestionPaginas', 'Módulo de gestión de páginas (CRUD)', 'development', 0 ,'jquery=true&jquery-ui=true&jquery-validation=true' );
+INSERT INTO <nombre>pagina (id_pagina, nombre, descripcion, modulo, nivel, parametro) VALUES (-13, 'gestionEstructuraPagina', 'Módulo de gestión de la estructura de las páginas', 'development', 0 ,'jquery=true&jquery-ui=true&jquery-validation=true' );
 -- Bloques
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-1,'menuLateral', 'Menú lateral módulo de desarrollo.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-2,'pie', 'Pie de página módulo de desarrollo.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-3,'banner', 'Banner módulo de desarrollo.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-4,'cruder', 'Módulo para crear módulos CRUD.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-5,'desenlace', 'Módulo de gestión de desenlace.', 'development');
-INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-6,'registro', 'Módulo para registrar páginas o módulos.', 'development');
+INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-6,'gestionPaginas', 'Módulo para gestionar(CRUD) páginas', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-7,'constructor', 'Módulo para diseñar páginas.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-8,'contenidoCentral', 'Contenido página principal de desarrollo.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-9,'codificador', 'Módulo para decodificar cadenas.', 'development');
@@ -26,7 +27,7 @@ INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-11,'
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-12,'formatearSQL', 'Módulo para formatear cadenas SQL para el archivo SQL.class.php recomendado en SARA.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-13,'gestionBloques', 'Módulo para gestionar(CRUD) bloques de desarrollo recomendado en SARA.', 'development');
 INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-14,'gestionConexiones', 'Módulo para gestionar las conexiones de bases de datos en SARA', 'development');
-INSERT INTO <nombre>bloque (id_bloque, nombre, descripcion, grupo) VALUES (-15,'gestionPaginas', 'Módulo para gestionar(CRUD) páginas', 'development');
+
 
 -- Estructura
 
