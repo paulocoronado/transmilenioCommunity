@@ -144,6 +144,8 @@ class HtmlBase {
     
     const HTMLENDLABEL = '</label>';
     
+    const NIVELENCABEZADO='nivel';
+    
     function __construct(&$instanciaAgregador='') {
     	//Se hace una referencia a la instancia del Agregador que es de la que hereda el FormularioHtml
     	$this->instanciaFormulario = $instanciaAgregador;  

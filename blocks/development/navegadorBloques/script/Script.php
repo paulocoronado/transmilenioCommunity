@@ -4,7 +4,7 @@
  * en el arreglo $esteBloque. Esto también aplica para todos los archivos que se incluyan.
  */
 $indice = 0;
-$funcion [$indice ++] = "jqueryFileTree.js";
+//$funcion [$indice ++] = "jqueryFileTree.js";
 
 
 $rutaBloque = $this->miConfigurador->getVariableConfiguracion ( "host" );

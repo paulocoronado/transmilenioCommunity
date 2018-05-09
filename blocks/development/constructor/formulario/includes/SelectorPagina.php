@@ -32,7 +32,7 @@
             $atributo['id']=$esteControl;
             $atributo['valor']='';
             $atributo['deshabilitado']=false;
-            $atributo['tamanno']=100;
+            $atributo['tamanno']=50;
             $atributo['estilo'] ='';
             //$atributo['marco']='';
             //$atributo['estiloMarco']='';

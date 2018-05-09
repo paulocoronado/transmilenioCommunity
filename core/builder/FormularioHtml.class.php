@@ -14,6 +14,7 @@ require_once ("core/builder/controleshtml/RadioButtonHtml.class.php");
 require_once ("core/builder/controleshtml/RecaptchaHtml.class.php");
 require_once ("core/builder/controleshtml/Select.class.php");
 require_once ("core/builder/controleshtml/TextArea.class.php");
+require_once ("core/builder/etiquetasHtml/Header.class.php");
 
 class FormularioHtml extends Agregador{
 	
@@ -35,7 +36,6 @@ class FormularioHtml extends Agregador{
      * Permite decodificar los campos de $_REQUEST que hayan sido enviados codificados
      * con la funcion "codificarCampos". Esta se puede acceder cuando se envía a un Formulario
      * y no a una Función o petición Ajax. Hay que revisar en estos la forma correcta de hacerlo.
-	 * Hasta donde se deja la funcionalidad se hace con una instanacia de core/builder/InspectorHTML.class.php
      */
     function decodificarCampos($valor){
     	return unserialize(base64_decode($valor));
@@ -56,7 +56,7 @@ class FormularioHtml extends Agregador{
         $this->aggregate('RecaptchaHtml');
         $this->aggregate('Select');
         $this->aggregate('TextArea');
-        
+        $this->aggregate('Header');        
     }
     
     

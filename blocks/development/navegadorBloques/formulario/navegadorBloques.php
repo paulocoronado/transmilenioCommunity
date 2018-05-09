@@ -26,20 +26,23 @@ class Registrador {
 		$this->miFormulario = $formulario;
 	}
 	function navegador($gestorConexiones) {
-            
             //1. Obtener los bloques que se tienen registrados
             $this->conexion = $this->miConfigurador->fabricaConexiones->getRecursoDB ( 'estructura' );
             $cadenaSql = $gestorConexiones->getCadenaSql ( 'consultarBloques' );
             $resultado = $this->conexion->ejecutarAcceso ( $cadenaSql, 'busqueda' );
-            
+            // ---------------- SECCION: División ----------------------------------------------------------
+            unset ( $atributos );
+            $esteCampo = 'divNavegador';
+            $atributos ['id'] = $esteCampo;
+            echo $this->miFormulario->division ( "inicio", $atributos );
             if($resultado){
                 $this->procesarJerarquia($resultado);
                 $this->armarNavegador(0,0);
                 
-            }else{
-
-
             }
+            // ---------------- FIN SECCION: División ----------------------------------------------------------
+            echo $this->miFormulario->division ( 'fin' );
+            
 	}
         
         
@@ -127,15 +130,15 @@ class Registrador {
                     
                     if($nodo['nivel']==$nivel && $nodo['idPadre']==$idPadre  ){                        
                         
-                        echo '<ul >';
                         
-                        echo '<li class="'.$nodo['tipo'].'">'.$nodo['nombre'].'</li>';
+                        echo "<ul class='navegadorBloques'>\n";
+                        echo "<li class='".$nodo['tipo']."'>\n".$nodo['nombre'];
                         
                         if($nivel<=$this->maxNivel){
                             $this->armarNavegador($nivel+1, $nodo['id']);
                         }
-                        
-                        echo '</ul>';
+                        echo "\n</li>\n";
+                        echo "</ul>\n";
                         
                     } 
                 

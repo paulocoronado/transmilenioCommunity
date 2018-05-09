@@ -23,59 +23,16 @@
         $atributos ['tipoEtiqueta'] = 'inicio';
         echo $this->miFormulario->formulario ( $atributos );
         
-        // ---------------- SECCION: Controles del Formulario -----------------------------------------------
+        division('divEstructura',$this->miFormulario);
         
-       // ---------------- SECCION: División ----------------------------------------------------------
-        unset ( $atributos );
-        $esteCampo = 'divEstructura';
-        $atributos ['id'] = $esteCampo;
-        echo $this->miFormulario->division ( "inicio", $atributos );
-        
-            // ---------------- SECCION: División ----------------------------------------------------------
-            unset ( $atributos );
-            $esteCampo = 'divA';
-            $atributos ['id'] = $esteCampo;
-            echo $this->miFormulario->division ( "inicio", $atributos );
-            // ---------------- FIN SECCION: División ----------------------------------------------------------
-            echo $this->miFormulario->division ( 'fin' );
-        
-            // ---------------- SECCION: División ----------------------------------------------------------
-            unset ( $atributos );
-            $esteCampo = 'divB';
-            $atributos ['id'] = $esteCampo;
-            echo $this->miFormulario->division ( "inicio", $atributos );
-            // ---------------- FIN SECCION: División ----------------------------------------------------------
-            echo $this->miFormulario->division ( 'fin' );
-        
-        
-            // ---------------- SECCION: División ----------------------------------------------------------
-            unset ( $atributos );
-            $esteCampo = 'divC';
-            $atributos ['id'] = $esteCampo;
-            echo $this->miFormulario->division ( "inicio", $atributos );
-            // ---------------- FIN SECCION: División ----------------------------------------------------------
-            echo $this->miFormulario->division ( 'fin' );
-        
-            // ---------------- SECCION: División ----------------------------------------------------------
-            unset ( $atributos );
-            $esteCampo = 'divD';
-            $atributos ['id'] = $esteCampo;
-            echo $this->miFormulario->division ( "inicio", $atributos );
-            // ---------------- FIN SECCION: División ----------------------------------------------------------
-            echo $this->miFormulario->division ( 'fin' );
-        
-            // ---------------- SECCION: División ----------------------------------------------------------
-            unset ( $atributos );
-            $esteCampo = 'divE';
-            $atributos ['id'] = $esteCampo;
-            echo $this->miFormulario->division ( "inicio", $atributos );
-            // ---------------- FIN SECCION: División ----------------------------------------------------------
-            echo $this->miFormulario->division ( 'fin' );
-        
-        
-        
-        // ---------------- FIN SECCION: División ----------------------------------------------------------
-        echo $this->miFormulario->division ( 'fin' );
+            $divisiones=array('A','B','C','D','E');
+            foreach ($divisiones as $valor){
+                division('div'.$valor,$this->miFormulario);            
+                encabezado('Sección '.$valor, $this->miFormulario);
+                division('',$this->miFormulario);
+            }
+        division('',$this->miFormulario);
+            
         
         // ---------------- FIN SECCION: Controles del Formulario -------------------------------------------
         
@@ -84,5 +41,31 @@
             $atributos ['marco'] = true;
         $atributos ['tipoEtiqueta'] = 'fin';
         echo $this->miFormulario->formulario ( $atributos );
-    
-    
+        
+        
+        function encabezado($texto, $formulario){
+            
+            // ---------------- SECCION: Header ----------------------------------------------------------
+            unset ( $atributos );
+            $atributos ['nivel'] = '4';
+            $atributos ['estilo'] = 'ui-widget-header';
+            $atributos ['estiloEnLinea'] = 'margin:0';
+            $atributos ['texto'] = $texto;
+            echo $formulario->encabezado($atributos );            
+            // ---------------- FIN SECCION: Header ----------------------------------------------------------
+            
+        }
+        
+        
+        function division($texto, $formulario ){            
+            if($texto!=''){
+            // ---------------- SECCION: División ----------------------------------------------------------
+            unset ( $atributos );
+            $esteCampo = $texto;
+            $atributos ['id'] = $esteCampo;
+            echo $formulario->division ( "inicio", $atributos );
+            }else{
+                   // ---------------- FIN SECCION: División ----------------------------------------------------------
+                    echo $formulario->division ( 'fin' );
+            }
+        }
