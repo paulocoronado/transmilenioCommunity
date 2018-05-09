@@ -1,12 +1,9 @@
 <?php
 $indice = 0;
 
-$estilo [$indice] = "estiloBloque.css";
+$estilo [$indice] = "estilosBloque.css";
+
 $indice ++;
-
-$estilo[$indice++] = "jquery.auto-complete.css";
-$indice++;
-
 
 $rutaBloque = $this->miConfigurador->getVariableConfiguracion ( "host" );
 $rutaBloque .= $this->miConfigurador->getVariableConfiguracion ( "site" );

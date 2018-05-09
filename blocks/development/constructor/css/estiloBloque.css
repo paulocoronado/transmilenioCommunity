@@ -1,0 +1,30 @@
+
+#divEstructura{
+	width:100%;
+	clear:both;
+        border:1px solid #AAAAAA;   
+        display:none;
+}
+
+#divA, #divE{
+    	border:1px solid #AAAAAA;   
+        height:150px;
+	margin:10px;
+	clear:both;
+}
+
+#divB, #divD{
+        width:20%;
+        height:250px;
+    	border:1px solid #AAAAAA;   
+	margin:20px;
+	float:left;        
+}
+
+#divC{
+        width:50%;
+        height:250px;
+    	border:1px solid #AAAAAA;   
+	margin:20px;
+        float:left;
+}

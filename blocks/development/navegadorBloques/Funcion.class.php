@@ -1,6 +1,6 @@
 <?php
 
-namespace development\constructor;
+namespace development\navegadorBloques;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");
@@ -37,16 +37,7 @@ class Funcion {
 	function redireccionar($opcion, $valor = "") {
 		include_once ($this->ruta . "/funcion/redireccionar.php");
 	}
-	function registrarPagina() {
-		include_once ($this->ruta . "funcion/RegistradorPagina.class.php");
-		
-		return $resultado;
-	}
-	function registrarBloque() {
-		include_once ($this->ruta . "funcion/RegistradorBloque.class.php");
-		
-		return $resultado;
-	}
+	
 	function procesarAjax() {
 		include_once ($this->ruta . "funcion/procesarAjax.php");
 	}
@@ -62,23 +53,6 @@ class Funcion {
 		
 		if (isset ( $_REQUEST ['procesarAjax'] )) {
 			$this->procesarAjax ();
-		} elseif (isset ( $_REQUEST ['opcion'] )) {
-			
-			switch ($_REQUEST ['opcion']) {
-				
-				case 'registrarPagina' :
-					
-					$resultado = $this->registrarPagina ();
-					break;
-				
-				case 'registrarBloque' :
-					$resultado = $this->registrarBloque ();
-					break;
-				
-				case 'armarPagina' :
-					$resultado = $this->armarPagina ();
-					break;
-			}
 		}
 		
 		return $resultado;

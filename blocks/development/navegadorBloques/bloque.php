@@ -1,6 +1,6 @@
 <?php
 
-namespace development\constructor;
+namespace development\navegadorBloques;
 
 // Evitar un acceso directo a este archivo
 if (! isset ( $GLOBALS ["autorizado"] )) {
@@ -8,7 +8,7 @@ if (! isset ( $GLOBALS ["autorizado"] )) {
 	exit ();
 }
 
-// Todo bloque debe implementar la interfaz Bloque
+// Cualquier bloque debe implementar la interfaz Bloque
 include_once ("core/builder/Bloque.interface.php");
 
 include_once ("core/manager/Configurador.class.php");
@@ -36,9 +36,7 @@ class Bloque implements \Bloque {
 	var $miFuncion;
 	var $miSql;
 	var $miConfigurador;
-	public 
-
-	function __construct($esteBloque, $lenguaje = "") {
+	public function __construct($esteBloque, $lenguaje = "") {
 		
 		// El objeto de la clase Configurador debe ser único en toda la aplicación
 		$this->miConfigurador = \Configurador::singleton ();
@@ -73,9 +71,8 @@ class Bloque implements \Bloque {
 			
 			$this->miFuncion->setSql ( $this->miSql );
 			$this->miFuncion->setLenguaje ( $this->miLenguaje );
-			
-			if (! isset ( $_REQUEST ['action'] )) {
-				
+                        
+                        if (! isset ( $_REQUEST ['action'] )) {
 				$this->miFrontera->frontera ();
 			} else {
 				

@@ -1,6 +1,6 @@
 <?php
 
-namespace development\registro;
+namespace development\constructor;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -15,11 +15,8 @@ class Frontera {
     var $sql;
     var $miFuncion;
     var $lenguaje;
-    var $miFormulario;
-    
-    var 
-
-    $miConfigurador;
+    var $miFormulario;    
+    var $miConfigurador;
     
     function __construct() {
         
@@ -56,40 +53,10 @@ class Frontera {
     function html() {
         
         include_once ("core/builder/FormularioHtml.class.php");
-        
-        $this->ruta = $this->miConfigurador->getVariableConfiguracion ( "rutaBloque" );
+        $this->ruta = $this->miConfigurador->getVariableConfiguracion ('rutaBloque');
         $this->miFormulario = new \FormularioHtml ();
-        
-        $miBloque = $this->miConfigurador->getVariableConfiguracion ( 'esteBloque' );
-        $resultado = $this->miConfigurador->getVariableConfiguracion ( 'errorFormulario' );
-        
-        if ($resultado && $resultado == $miBloque ['nombre']) {
-            
-            if(!isset($_REQUEST ['seleccionar'])){
-                $_REQUEST ['seleccionar']=0;
-            }
-            
-            switch ($_REQUEST ['seleccionar']) {
-                
-                case '1' :
-                    include_once ($this->ruta . "/formulario/registrarPagina.php");
-                    break;
-                case '2' :
-                    include_once ($this->ruta . "/formulario/registrarBloque.php");
-                    break;
-                
-                case '3' :
-                    include_once ($this->ruta . "/formulario/armarPagina.php");
-                    break;
-                    
-                default:
-                    include_once ($this->ruta . "/formulario/registro.php");
-            
-            }
-        
-        } else {
-            include_once ($this->ruta . "/formulario/registro.php");
-        }
+        $miBloque = $this->miConfigurador->getVariableConfiguracion ('esteBloque');
+        include_once ($this->ruta . "/formulario/BuscadorPagina.php");
     
     }
 

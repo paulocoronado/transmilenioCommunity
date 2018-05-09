@@ -1,6 +1,6 @@
 <?php
 
-namespace development\constructor;
+namespace development\navegadorBloques;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");

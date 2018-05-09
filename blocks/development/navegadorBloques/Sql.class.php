@@ -1,6 +1,6 @@
 <?php
 
-namespace development\constructor;
+namespace development\navegadorBloques;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");
@@ -28,19 +28,20 @@ class Sql extends \Sql {
 			/**
 			 * Clausulas específicas
 			 */
-			case 'consultarPaginas' :
+			case 'consultarBloques' :
 				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_pagina as data, ';
-				$cadenaSql .= 'nombre as value ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= $prefijo . 'pagina ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'nombre LIKE \'%' . $_REQUEST['query'] . '%\' ';
-                		break;
+				$cadenaSql = " SELECT id_bloque, "
+                                . "trim(nombre) as nombre, "
+                                . "trim(descripcion) as descripcion, "
+                                . "trim(grupo) as grupo "
+                                ."FROM " . $prefijo . "bloque "
+                                . "ORDER BY nombre asc";
+                                //."WHERE id_bloque>0 ";
+                                
+                            	break;			
 		}
-                
-                return $cadenaSql;
+		
+		return $cadenaSql;
 	}
 }
 ?>

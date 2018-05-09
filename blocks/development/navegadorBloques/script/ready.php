@@ -1,6 +1,10 @@
 <?php 
-    $_REQUEST['tiempo']=time();
+
+$_REQUEST['tiempo']=time();
+
+
 ?>
+
 
 setTimeout(function() {
     $('#divMensaje').hide( "drop", { direction: "up" }, "slow" );

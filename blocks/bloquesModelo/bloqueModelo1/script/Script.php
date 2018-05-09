@@ -4,9 +4,13 @@
  * en el arreglo $esteBloque. Esto también aplica para todos los archivos que se incluyan.
  */
 
+// ------------------------ Registrar bibliotecas -------------------------------------------
 $indice=0;
-$funcion[$indice++]="jquery.validationEngine.js";
+$funcion[$indice++]="jquery.validationEngine.js";	
 $funcion[$indice++]="jquery.validationEngine-es.js";
+
+// ------------------------ Fin sección Registrar biblioteca --------------------------------
+
 
 
 

@@ -1,25 +1,8 @@
 <?php
 
 /**
- * $atributo['estilo'] 
- * $atributo['marco']
- * $atributo['columnas']
- * $atributo['etiqueta']
- * $atributo['anchoEtiqueta']
- * $atributo['estiloEtiqueta']
- * $atributo['dobleLinea']: La etiqueta va en una línea diferente a la del control asociado.
- * $atributo['tipo']		: text (para ingreso de texto), file (para seleccionar archivos)
- * $atributo['maximoTamanno']
- * $atributo['data-validate'] : Específico si se trabaja con el plugin Ketchup
- * $atributo['validar'] : Específico si se trabaja con el plugin validation-engine
- * $atributo['evento']
- * $atributo['tabIndex']
- * $atributo['name']
- * $atributo['id']
- * $atributo['valor']
- * $atributo['titulo']
- * $atributo['deshabilitado']
- * $atributo['tamanno']
+ *  Para una explicación de cada uno de los atributos ir a la carpeta_
+ *  blocks/development/plantillasControlesFormulario
  * 
  */
 require_once ("core/builder/HtmlBase.class.php");
