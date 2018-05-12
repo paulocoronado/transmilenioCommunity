@@ -21,7 +21,7 @@ class Header extends HtmlBase {
         if (isset ( $this->atributos [self::NIVELENCABEZADO] )) {
             $tipo='h'.$this->atributos [self::NIVELENCABEZADO]." ";
         } else {
-             $tipo = 'h1';
+             $tipo = 'h1 ';
         }
         
         $this->cadenaHTML = '<'.$tipo;

@@ -23,14 +23,13 @@
         $atributos ['tipoEtiqueta'] = 'inicio';
         echo $this->miFormulario->formulario ( $atributos );
         
-        division('divEstructura',$this->miFormulario);
-        
-            $divisiones=array('A','B','C','D','E');
-            foreach ($divisiones as $valor){
-                division('div'.$valor,$this->miFormulario);            
-                encabezado('Sección '.$valor, $this->miFormulario);
-                division('',$this->miFormulario);
-            }
+        division('divEstructura',$this->miFormulario);        
+        $divisiones=array('A','B','C','D','E');
+        foreach ($divisiones as $valor){
+            division('div'.$valor,$this->miFormulario);            
+            encabezado('Sección '.$valor, $this->miFormulario);              
+            division('',$this->miFormulario);
+        }
         division('',$this->miFormulario);
             
         
@@ -52,7 +51,7 @@
             $atributos ['estiloEnLinea'] = 'margin:0';
             $atributos ['texto'] = $texto;
             echo $formulario->encabezado($atributos );            
-            // ---------------- FIN SECCION: Header ----------------------------------------------------------
+            // ---------------- FIN SECCION: Header ----------------------------------------------------------            
             
         }
         
@@ -63,7 +62,8 @@
             unset ( $atributos );
             $esteCampo = $texto;
             $atributos ['id'] = $esteCampo;
-            echo $formulario->division ( "inicio", $atributos );
+            echo $formulario->division ( "inicio", $atributos );           
+            
             }else{
                    // ---------------- FIN SECCION: División ----------------------------------------------------------
                     echo $formulario->division ( 'fin' );

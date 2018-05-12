@@ -7,6 +7,8 @@ include_once ("core/manager/Configurador.class.php");
  * Listado de atributos que se requieren para definir el control:
  *
  * $atributos['anchoEtiqueta']: Entero. Define el ancho de la etqiueta en pixeles.
+ * 
+ * @todo Unificar la función atributos generales. Toca revisar todas las clases y eliminar de ellas los clas, style, etc
  */
 class HtmlBase {
     

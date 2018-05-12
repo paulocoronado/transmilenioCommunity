@@ -25,5 +25,22 @@ UL.navegadorBloques A:hover {
 	background: #BDF;
 }
 
-.navegadorBloques LI.paquete { background: url(images/directory.png) left top no-repeat; }
-.navegadorBloques LI.bloque { background: url(images/file.png) left top no-repeat; }}
+.navegadorBloques LI.paquete { 
+    background: url(images/directory.png) left top no-repeat; 
+}
+.navegadorBloques LI.bloque { 
+    background: url(images/file.png) left top no-repeat; 
+}
+
+.listaBloques{
+    
+    list-style-type: none;
+    margin: 20px;
+    padding: 0px;
+}
+
+.listaBloques li{
+    float:left;
+    padding:10px;
+}
+

@@ -15,6 +15,7 @@ require_once ("core/builder/controleshtml/RecaptchaHtml.class.php");
 require_once ("core/builder/controleshtml/Select.class.php");
 require_once ("core/builder/controleshtml/TextArea.class.php");
 require_once ("core/builder/etiquetasHtml/Header.class.php");
+require_once ("core/builder/etiquetasHtml/Generico.class.php");
 
 class FormularioHtml extends Agregador{
 	
@@ -56,7 +57,8 @@ class FormularioHtml extends Agregador{
         $this->aggregate('RecaptchaHtml');
         $this->aggregate('Select');
         $this->aggregate('TextArea');
-        $this->aggregate('Header');        
+        $this->aggregate('Header');
+        $this->aggregate('Generico');
     }
     
     
