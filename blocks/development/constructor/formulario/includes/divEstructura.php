@@ -1,28 +1,6 @@
 <?php
         // Rescatar los datos de este bloque
         $esteBloque = $this->miConfigurador->getVariableConfiguracion ( "esteBloque" );
-        
-        // ---------------- SECCION: Parámetros Generales del Formulario ----------------------------------
-        $esteCampo = $esteBloque ['nombre'];
-        $atributos ['id'] = $esteCampo;
-        $atributos ['nombre'] = $esteCampo;
-        // Si no se coloca, entonces toma el valor predeterminado 'application/x-www-form-urlencoded'
-        $atributos ['tipoFormulario'] = '';
-        // Si no se coloca, entonces toma el valor predeterminado 'POST'
-        $atributos ['metodo'] = 'POST';
-        // Si no se coloca, entonces toma el valor predeterminado 'index.php' (Recomendado)
-        $atributos ['action'] = 'index.php';
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo );
-        // Si no se coloca, entonces toma el valor predeterminado.
-        $atributos ['estilo'] = '';
-        $atributos ['marco'] = true;
-        $tab = 1;
-        // ---------------- FIN SECCION: de Parámetros Generales del Formulario ----------------------------
-        
-        // ----------------INICIAR EL FORMULARIO ------------------------------------------------------------
-        $atributos ['tipoEtiqueta'] = 'inicio';
-        echo $this->miFormulario->formulario ( $atributos );
-        
         division('divEstructura',$this->miFormulario);        
         $divisiones=array('A','B','C','D','E');
         foreach ($divisiones as $valor){
@@ -34,12 +12,6 @@
             
         
         // ---------------- FIN SECCION: Controles del Formulario -------------------------------------------
-        
-        // ----------------FINALIZAR EL FORMULARIO ----------------------------------------------------------
-        // Se debe declarar el mismo atributo de marco con que se inició el formulario.
-            $atributos ['marco'] = true;
-        $atributos ['tipoEtiqueta'] = 'fin';
-        echo $this->miFormulario->formulario ( $atributos );
         
         
         function encabezado($texto, $formulario){

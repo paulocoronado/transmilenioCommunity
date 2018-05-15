@@ -213,17 +213,24 @@ class HtmlBase {
     
     }
     
+    /**
+     * 
+     * @param type $campo
+     * Codifica el nombre del campo.
+     */
+    
     function campoSeguro($campo = '') {
         
         if (isset ( $_REQUEST ['tiempo'] )) {
-            //$this->atributos ['tiempo'] = $_REQUEST ['tiempo'];
-	    $_REQUEST ['tiempo'] = intval(intval($_REQUEST ['tiempo'])/1000)*1000;
+            $_REQUEST ['tiempo'] = intval(intval($_REQUEST ['tiempo'])/1000)*1000;
 	    $this->atributos ['tiempo']= $_REQUEST ['tiempo'];
         }else{
         	$this->atributos ['tiempo'] = '';
         }
         
-        if (isset ( $this->atributos ['campoSeguro'] ) && $this->atributos ['campoSeguro'] && $this->atributos [self::ID] != 'formSaraData') {
+        if (isset ( $this->atributos ['campoSeguro'] ) 
+                && $this->atributos ['campoSeguro'] 
+                && $this->atributos [self::ID] != 'formSaraData') {
             $this->atributos [self::ID] = $this->miConfigurador->fabricaConexiones->crypto->codificar ( $this->atributos [self::ID] . $this->atributos ['tiempo'] );
             $this->atributos [self::NOMBRE] = $this->atributos [self::ID];
             if ($campo == 'form') {

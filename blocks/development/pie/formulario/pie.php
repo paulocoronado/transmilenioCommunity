@@ -18,8 +18,8 @@ $enlace = $this->miConfigurador->getVariableConfiguracion ( 'enlace' );
 <div class="pie">
 	<div class="seccionDerecha">
 			<span class="pieEncabezado">OpenSARA Framework</span><br><br>
-			(R)2013 -2017. OpenSARA es código abierto.<br>
-			Universidad Distrital Francisco José de Caldas<br><br>
+			(R)2013 -2018. OpenSARA es código abierto.<br>
+			OSGeoLabUD - Universidad Distrital Francisco José de Caldas<br><br>
 			<span class="pieEncabezado">Powered by: openSARA Framework</span><br>
 			<a href="mailto:paulo_cesar@udistrital.edu.co">paulo_cesar@udistrital.edu.co</a><br><br>
 			

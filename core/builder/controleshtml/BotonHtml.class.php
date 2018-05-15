@@ -4,145 +4,211 @@ require_once ("core/builder/HtmlBase.class.php");
 
 require_once ("core/builder/controleshtml/Input.class.php");
 
+/**
+ * 
+ *  $atributos['nombreFormulario']: Nombre del formulario al cual pertenece el botón.
+ *  $atributos ["id"] = Atributo id del botón.
+ *  $atributos ["tabIndex"] = A los cuantos TABs el botón capturará el enfoque.
+ *  $atributos ["tipo"] = 'boton' para tipo button, cualquier otro valor generará un input.
+ *  $atributos ['submit'] = Solo para tipo boton, agrega el atributo type='submit'.
+ *  $atributos ["estiloMarco"] = '';
+ *  $atributos ["estiloBoton"] = 'jqueryui botonAceptar';
+ *  $atributos ["verificar"] = ???
+ *  $atributos ["tipoSubmit"] = 
+ *  $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+ * 
+ * 
+ */
 
-class BotonHtml extends HtmlBase{
+class BotonHtml extends HtmlBase {
 
+    /**
+     * 
+     * @param string $atributos
+     * @return type
+     * 
+     * Se encarga de poner una división que servirá como contenedor del botón
+     */
     function campoBoton($atributos) {
-        
-        $this->setAtributos ( $atributos );
-        
+
+        $this->setAtributos($atributos);
+
+        //Codificar el nombre y el ID del control
         $this->campoSeguro();
-        
-        if(isset($_REQUEST['formSecureId'])){
-            $this->atributos [self::NOMBREFORMULARIO]=$_REQUEST['formSecureId'];
+
+
+        if (isset($_REQUEST['formSecureId'])) {
+            $this->atributos [self::NOMBREFORMULARIO] = $_REQUEST['formSecureId'];
         }
 
         $this->cadenaHTML = '';
-        
-        $final='';
-        
-        if(!isset ( $atributos [self::ESTILOMARCO] ) || $atributos [self::ESTILOMARCO] == '' || $atributos [self::ESTILOMARCO] == 'jqueryui' ){
-            $atributos [self::ESTILOMARCO]='campoBoton';
+
+        $final = '';
+
+        if (!isset($atributos [self::ESTILOMARCO]) || $atributos [self::ESTILOMARCO] == '' || $atributos [self::ESTILOMARCO] == 'jqueryui') {
+            $atributos [self::ESTILOMARCO] = 'campoBoton';
         }
-        
-        if (! isset ( $atributos [self::SINDIVISION] )) {
-    
+
+        if (!isset($atributos [self::SINDIVISION])) {
+
             $this->cadenaHTML .= "<div class='" . $atributos [self::ESTILOMARCO] . "'>\n";
-            
-            $final='</div>';
+
+            $final = '</div>';
         }
-    
-        $this->cadenaHTML .= $this->boton ( $this->configuracion);
-        
-        return $this->cadenaHTML.$final;
-    
+
+        //Armar el código HTML del botón de acuerdo a los atributos definidos
+        $this->cadenaHTML .= $this->boton($this->configuracion);
+
+
+        return $this->cadenaHTML . $final;
     }
-    
-    function cuadroAsociado(){
-        
-        $cuadroTexto=new Input();
-        $this->atributos [self::TIPO] = self::HIDDEN;
-        $this->atributos ["obligatorio"] = false;
-        $this->atributos [self::ETIQUETA] = "";
-        $this->atributos [self::VALOR] = "false";
-        return $cuadroTexto->cuadro_texto($this->atributos );
-        
-    }
-    
+
     private function boton($datosConfiguracion) {
-        
-        if($this->atributos [self::ESTILOBOTON]=='jqueryui'){
-            $this->atributos [self::ESTILOBOTON]='ui-button ui-state-default ui-corner-all ui-button-text-only';
+
+        if (isset($this->atributos [self::ESTILOBOTON])) {
+
+            $this->atributos [self::ESTILOBOTON] = str_replace("jqueryui", "ui-button ui-state-default ui-corner-all ui-button-text-only", $this->atributos [self::ESTILOBOTON]);
         }
+
         if ($this->atributos [self::TIPO] == "boton") {
-            $this->cadenaBoton = "<button ";
-            $this->cadenaBoton .= "class='".$this->atributos [self::ESTILOBOTON]."' ";
-            $this->cadenaBoton .= self::HTMLVALUE . "'" . $this->atributos [self::VALOR] . "' ";
-            $this->cadenaBoton .= "id='" . $this->atributos [self::ID] . "A' ";
-            $this->cadenaBoton .= self::HTMLTABINDEX . "'" . $this->atributos [self::TABINDEX] . "' ";
-    
-            $this->cadenaBoton .= $this->atributosGeneralesBoton ();
-    
-            if (! isset ( $this->atributos ["cancelar"] ) && (isset ( $this->atributos [self::VERIFICARFORMULARIO] ) && $this->atributos [self::VERIFICARFORMULARIO] != "")) {
-                $this->cadenaBoton .= "onclick=\"if(" . $this->atributos [self::VERIFICARFORMULARIO] . "){document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . $cadenaHtml[0] . $this->atributos [self::ID] . "'].value= 'true';";
-                if (isset ( $this->atributos [self::TIPOSUBMIT] ) && $this->atributos [self::TIPOSUBMIT] == "jquery") {
-                    $this->cadenaBoton .= " $(this).closest('form').submit();";
-                } else {
-                    $this->cadenaBoton .= "document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].submit()";
-                }
-                $this->cadenaBoton .= "}else{this.disabled=false;false}\">" . $this->atributos [self::VALOR] . '</button>\n';
-                // El cuadro de Texto asociado
-                $this->cadenaBoton .= $this->cuadroAsociado();
-                
-                
-                
-            } else {
-    
-                $this->cadenaBoton .= $this->atributoOnclickBoton ();
-    
-                $this->cadenaBoton .= "\">" . $this->atributos [self::VALOR] . "</button>\n";
-    
-                // El cuadro de Texto asociado
-                $this->cadenaBoton .= $this->cuadroAsociado();
-            }
+
+            $cadena = $this->tipoButton();
         } else {
-    
-            $this->cadenaBoton = "<input ";
-            $this->cadenaBoton .= self::HTMLVALUE . "'" . $this->atributos [self::VALOR] . "' ";
-            $this->cadenaBoton .= self::HTMLNAME . "'" . $this->atributos [self::ID] . "' ";
-            $this->cadenaBoton .= "id='" . $this->atributos [self::ID] . "' ";
-            $this->cadenaBoton .= self::HTMLTABINDEX . "'" . $this->atributos [self::TABINDEX] . "' ";
-            $this->cadenaBoton .= "type='submit' ";
-            $this->cadenaBoton .= ">\n";
+
+            $cadena = $this->tipoInput();
         }
-        return $this->cadenaBoton;
-    
-    }
-    
-    function atributoOnclickBoton() {
-    
-        $cadena = '';
-        if (isset ( $this->atributos [self::TIPOSUBMIT] ) && $this->atributos [self::TIPOSUBMIT] == "jquery") {
-            // Utilizar esto para garantizar que se procesan los controladores de eventos de javascript al momento de enviar el form
-            $cadena .= "onclick=\"document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].elements['" . $this->atributos [self::ID] . "'].value='true';";
-            $cadena .= " $(this).closest('form').submit();";
-        } else {
-            if (! isset ( $this->atributos [self::ONCLICK] )) {
-    
-                $cadena .= "onclick=\"document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].elements['" . $this->atributos [self::ID] . "'].value='true';";
-                $cadena .= "document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].submit()";
-            }
-        }
-    
-        if (isset ( $this->atributos [self::ONCLICK] ) && $this->atributos [self::ONCLICK] != '') {
-            $cadena .= "onclick=\" " . $this->atributos [self::ONCLICK] . "\" ";
-        }
-    
+
+        // El cuadro de Texto asociado
+        $cadena .= $this->cuadroAsociado();
         return $cadena;
-    
     }
-    
+
+    function tipoButton() {
+
+        $cadena = "<button ";
+        //Atributos del Botón
+        $cadena .= $this->atributosGeneralesBoton();
+        $cadena .= $this->atributoTipoSubmit();
+        $cadena .= ">" . $this->atributos [self::VALOR] . "</button>\n";
+        return $cadena;
+    }
+
+    function tipoInput() {
+        $cadena = "<input ";
+        $cadena .= self::HTMLVALUE . "'" . $this->atributos [self::VALOR] . "' ";
+        $cadena .= self::HTMLNAME . "'" . $this->atributos [self::ID] . "' ";
+        $cadena .= "id='" . $this->atributos [self::ID] . "' ";
+        $cadena .= self::HTMLTABINDEX . "'" . $this->atributos [self::TABINDEX] . "' ";
+        $cadena .= "type='submit' ";
+        $cadena .= ">\n";
+        return $cadena;
+    }
+
     function atributosGeneralesBoton() {
-    
+
         $cadena = '';
-        if (isset ( $this->atributos ['submit'] ) && $this->atributos ['submit']) {
+
+        //ID del botón
+        $cadena .= "id='" . $this->atributos [self::ID] . "A' ";
+
+        //Estilos
+        $cadena .= "class='" . $this->atributos [self::ESTILOBOTON] . "' ";
+
+        //Etiqueta del Botón
+        $cadena .= self::HTMLVALUE . "'" . $this->atributos [self::VALOR] . "' ";
+
+        //Índice Tabulador
+        $cadena .= self::HTMLTABINDEX . "'" . $this->atributos [self::TABINDEX] . "' ";
+
+
+        if (isset($this->atributos ['submit']) && $this->atributos ['submit']) {
             $cadena .= "type='submit' ";
         } else {
             $cadena .= "type='button' ";
         }
-    
-        if (! isset ( $this->atributos ["onsubmit"] )) {
+
+        if (!isset($this->atributos ["onsubmit"])) {
             $this->atributos ["onsubmit"] = "";
         }
-    
+
         // Poner el estilo en línea definido por el usuario
-        if (isset ( $this->atributos [self::ESTILOENLINEA] ) && $this->atributos [self::ESTILOENLINEA] != "") {
+        if (isset($this->atributos [self::ESTILOENLINEA]) && $this->atributos [self::ESTILOENLINEA] != "") {
             $cadena .= "style='" . $this->atributos [self::ESTILOENLINEA] . "' ";
         }
-    
+
         return $cadena;
-    
     }
-    
-    
+
+    function cuadroAsociado() {
+
+        $cuadroTexto = new Input();
+        $this->atributos [self::TIPO] = self::HIDDEN;
+        $this->atributos ["obligatorio"] = false;
+        $this->atributos [self::ETIQUETA] = "";
+        $this->atributos [self::VALOR] = "false";
+        return $cuadroTexto->cuadro_texto($this->atributos);
+    }
+
+    function atributoTipoSubmit() {
+        
+        if (!isset($this->atributos [self::TIPOSUBMIT])) {
+            
+            /**
+             * Si el atributo no está declarado entonces los eventos del botón deben ser procesados por funciones definidas en ready,js
+             */
+            return '';
+        }
+        
+
+
+        /**
+         * Desde $atributos["tipoSubmit"] se puede declarar cierta funcionalidad:
+         * 
+         * 
+         * '': Vacio. El botón envía el formulario al que pertenece
+         * 'todos': El botón envía todos los formularios que se encuentran en la página
+         * 'jquery': El botón envía el formulario al que pertenece usando la sintaxis de jquery
+         * 'ready': El click en el botón es procesado por una función que debe estar definida en el archivo ready.js (predeterminado)
+         * 'verificar': El click en el botón es procesado por la biblioteca (o función) de verificación definida en $atributos['verificar']
+         * 
+         * En todo caso, $atributos['onClick'] tiene prelación.
+         *          
+         */
+        $cadena = '';
+
+        if (isset($this->atributos [self::ONCLICK]) && $this->atributos [self::ONCLICK] != '') {
+            $cadena .= 'onclick=" ' . $this->atributos [self::ONCLICK] . '" ';
+        } else {
+
+
+            if (!isset($this->atributos ["cancelar"]) && (isset($this->atributos [self::VERIFICARFORMULARIO]) && $this->atributos [self::VERIFICARFORMULARIO] != "")) {
+                
+                $cadena .= "onclick=\"if(" . $this->atributos [self::VERIFICARFORMULARIO] . "){document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . $cadenaHtml[0] . $this->atributos [self::ID] . "'].value= 'true';";
+
+                if ($this->atributos [self::TIPOSUBMIT] == "jquery") {
+                    $cadena .= " $(this).closest('form').submit();";
+                } else {
+                    $cadena .= "document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].submit()";
+                }
+                $cadena .= "}else{this.disabled=false;false}\"";
+            } else {
+
+                if ($this->atributos [self::TIPOSUBMIT] == "jquery") {
+                    // Utilizar esto para garantizar que se procesan los controladores de eventos de javascript al momento de enviar el form
+                    $cadena .= "onclick=\"document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].elements['" . $this->atributos [self::ID] . "'].value='true';";
+                    $cadena .= " $(this).closest('form').submit();\"";
+                } else {
+                    if ($this->atributos [self::TIPOSUBMIT] != "ready") {
+
+                        $cadena .= "onclick=\"document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].elements['" . $this->atributos [self::ID] . "'].value='true';";
+                        $cadena .= "document.forms['" . $this->atributos [self::NOMBREFORMULARIO] . "'].submit()\"";
+                    }
+                }
+            }
+        }
+
+
+        return $cadena;
+    }
+
 }
