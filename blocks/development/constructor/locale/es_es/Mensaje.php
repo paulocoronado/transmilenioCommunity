@@ -1,6 +1,6 @@
 <?php
-$this->idioma ['pagina'] = 'Página:';
-$this->idioma ['paginaTextoFondo'] = 'Nombre de la página';
+$this->idioma ['paginaMaestra'] = 'Página:';
+$this->idioma ['paginaMaestraTextoFondo'] = 'Nombre de la página';
 $this->idioma ['botonAceptar'] = 'Guardar';
 
 $this->idioma ['noDefinido'] = '';

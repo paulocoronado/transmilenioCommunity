@@ -21,9 +21,15 @@ $("button").button().click(function (event) {
        blocks.bloques.push(items);
     }
     
-        var v = JSON.stringify(blocks);
-        console.log(v);
+    var v = JSON.stringify(blocks);
+    v=v.replace(/"/g,"'");
+    
+     control='<input type="hidden" name="misBloques" value="'+v+'"  />';
+     $(control).appendTo('#formDatos');
+     
+     $('#formDatos').submit();
+    
     
         
         
- });
+ });    

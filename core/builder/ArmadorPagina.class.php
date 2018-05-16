@@ -208,9 +208,9 @@ class ArmadorPagina {
 				$unBloque ["id_bloque"] = $_REQUEST ["bloque"];
 				include_once ($this->raizDocumentos . self::CARPETABLOQUES . $carpeta . $unBloque [self::NOMBRE] . self::ARCHIVOBLOQUE);
 				unset ( $_REQUEST ['action'] );
-			} elseif (isset ( $_REQUEST ["procesarAjax"] )) {
-				
-				include_once ($this->raizDocumentos . self::CARPETABLOQUES . $carpeta . $_REQUEST ["bloqueNombre"] . self::ARCHIVOBLOQUE);
+			} elseif (isset ( $_REQUEST ["procesarAjax"] )) {				
+			
+                            include_once ($this->raizDocumentos . self::CARPETABLOQUES . $carpeta . $_REQUEST ["bloqueNombre"] . self::ARCHIVOBLOQUE);
 			}
 		}
 	}

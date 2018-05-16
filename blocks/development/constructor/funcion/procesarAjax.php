@@ -18,13 +18,19 @@ class procesarAjax {
 		switch ($_REQUEST ['funcion']) {
 			
 			case 'consultarPagina' :				
-				$opcion='consultar';
-				include ('AdministradorPagina.php');
-				break;
+				$opcion='consultar';				
+                                break;
+                        case 'consultarBloques' :
+                            	$opcion='consultarBloques';				
+                                break;
 		}
+                
+                include ('AdministradorPagina.php');
 	}
 
 }
+
+
 
 $miProcesarAjax = new procesarAjax ( $this->lenguaje,$this->sql);
 

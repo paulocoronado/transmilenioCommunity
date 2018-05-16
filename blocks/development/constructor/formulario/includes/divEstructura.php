@@ -5,7 +5,7 @@
         $divisiones=array('A','B','C','D','E');
         foreach ($divisiones as $valor){
             division('div'.$valor,$this->miFormulario);            
-            encabezado('Sección '.$valor, $this->miFormulario);              
+            encabezado($valor, $this->miFormulario);              
             division('',$this->miFormulario);
         }
         division('',$this->miFormulario);
@@ -19,8 +19,6 @@
             // ---------------- SECCION: Header ----------------------------------------------------------
             unset ( $atributos );
             $atributos ['nivel'] = '4';
-            $atributos ['estilo'] = 'ui-widget-header';
-            $atributos ['estiloEnLinea'] = 'margin:0';
             $atributos ['texto'] = $texto;
             echo $formulario->encabezado($atributos );            
             // ---------------- FIN SECCION: Header ----------------------------------------------------------            
@@ -34,6 +32,7 @@
             unset ( $atributos );
             $esteCampo = $texto;
             $atributos ['id'] = $esteCampo;
+            $atributos ['estiloEnLinea'] = 'z-index: 2;';
             echo $formulario->division ( "inicio", $atributos );           
             
             }else{

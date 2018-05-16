@@ -34,8 +34,7 @@ class ProcesadorPagina {
 			include_once ($this->raizDocumentos . self::CARPETABLOQUES . $carpeta . $unBloque [self::NOMBRE] . self::ARCHIVOBLOQUE);
 			return true;
 		} elseif (isset ( $_REQUEST ["procesarAjax"] )) {
-			
-			include_once ($this->raizDocumentos . self::CARPETABLOQUES . $carpeta . $_REQUEST ["bloqueNombre"] . self::ARCHIVOBLOQUE);
+                    	include_once ($this->raizDocumentos . self::CARPETABLOQUES . $carpeta . $_REQUEST ["bloqueNombre"] . self::ARCHIVOBLOQUE);
 		}
 		
 		/**

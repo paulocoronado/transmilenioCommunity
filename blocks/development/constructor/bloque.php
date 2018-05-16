@@ -79,7 +79,7 @@ class Bloque implements \Bloque {
 				$this->miFrontera->frontera ();
 			} else {
 				
-				$respuesta = $this->miFuncion->action ();
+                                $respuesta = $this->miFuncion->action ();
 				
 				// Si $respuesta==false, entonces se debe recargar el formulario y mostrar un mensaje de error.
 				if (! $respuesta) {

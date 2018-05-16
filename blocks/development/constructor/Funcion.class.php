@@ -34,15 +34,18 @@ class Funcion {
 			return true;
 		}
 	}
+	function redireccionar($opcion, $valor = "") {
+		include_once ($this->ruta . "/funcion/redireccionar.php");
+	}
 	function guardarEstructura() {
-		include_once ($this->ruta . "funcion/Estructurador.class.php");
-		
+                include_once ($this->ruta . "funcion/Estructurador.class.php");
 		return $resultado;
 	}
-        
+	function procesarAjax() {
+		include_once ($this->ruta . "funcion/procesarAjax.php");
+	}
 	function action() {
 		$resultado = true;
-                
 		
 		// Aquí se coloca el código que procesará los diferentes formularios que pertenecen al bloque
 		// aunque el código fuente puede ir directamente en este script, para facilitar el mantenimiento
@@ -50,13 +53,15 @@ class Funcion {
 		// en la carpeta funcion
 		
 		// Importante: Es adecuado que sea una variable llamada opcion o action la que guie el procesamiento:
-	        if (isset ( $_REQUEST ['opcion'] )) {
-			
-			switch ($_REQUEST ['opcion']) {
-				
-				case 'guardarEstructura' :
-					
-					$resultado = $this->guardarEstructura ();exit;
+		if (isset ( $_REQUEST ['procesarAjax'] )) {
+                    
+			$this->procesarAjax ();
+		} elseif (isset ( $_REQUEST ['opcion'] )) {
+                    
+                    	switch ($_REQUEST ['opcion']) {
+		
+                                case 'guardarEstructura' :					
+					$resultado = $this->guardarEstructura ();
 					break;
 				
 			}
@@ -64,7 +69,6 @@ class Funcion {
 		
 		return $resultado;
 	}
-        
 	function __construct() {
 		$this->miConfigurador = \Configurador::singleton ();
 		
@@ -81,7 +85,6 @@ class Funcion {
 			$this->miRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ( $conexion );
 		}
 	}
-        
 	public function setRuta($unaRuta) {
 		$this->ruta = $unaRuta;
 	}

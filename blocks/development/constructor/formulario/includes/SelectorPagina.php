@@ -27,7 +27,7 @@
         
         // ---------------- CONTROL: Cuadro Texto --------------------------------------------------------
             unset ( $atributos );
-            $esteControl = 'pagina';
+            $esteControl = 'paginaMaestra';
             $atributo['name']=$esteControl;
             $atributo['id']=$esteControl;
             $atributo['valor']='';

@@ -74,12 +74,6 @@ function moverItem( $contenedor,$item ) {
         cursor:"move",
         zIndex: 100
     });
-    
-    division=$(document.getElementById($contenedor.id));    
-        
-    if(division.height()<=$('#bloques'+$contenedor.id+' li').length*60 && $contenedor.id!='divA'&& $contenedor.id!='divE' ){
-       $('#'+$contenedor.id).height(($('#bloques'+$contenedor.id+' li').length+1)*60) ;
-    }
 };
 
 function removerItem( $contenedor,$item ) {

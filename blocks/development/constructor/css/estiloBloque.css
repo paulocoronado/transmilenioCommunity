@@ -3,33 +3,49 @@
 	width:95%;
         margin:0 auto;
 	clear:both;
-        //display:none;
+        display:none;
 }
 
 #divA, #divE{
-    	border:1px solid #AAAAAA;   
-        border-top: 0;
-        height:100px;
+    	border:1px solid #CCCCCC;   
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        min-height: 100px;
+        overflow: hidden;
 	margin:10px;
 	clear:both;
 }
 
 #divB, #divD{
         width:28%;
-        height:120px;
-    	border:1px solid #AAAAAA;   
-	margin:20px;
-	float:left;        
+        min-height: 120px;
+        overflow: hidden;   
+    	border:1px solid #CCCCCC;   
+	margin:20px 10px;
+	float:left;  
 }
 
 #divC{
         width:28%;
-        height:120px;
-    	border:1px solid #AAAAAA;   
+        min-height: 100px;
+        overflow: hidden;
+    	border:1px solid #CCCCCC;   
 	margin:20px;
         float:left;
 }
 
 .botonAceptar{
         padding:10px 20px;
+}
+
+h4{
+    
+    margin:0px;
+    z-index: -1;
+    color: #000; /* Fallback for older browsers */
+    color: rgba(0, 0, 0, 0.05);
+    font-size: 50pt;
+    font-family: Arial, sans-serif;
+    float:left;
 }
