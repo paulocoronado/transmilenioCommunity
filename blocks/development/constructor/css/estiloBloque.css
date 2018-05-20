@@ -17,7 +17,7 @@
 	clear:both;
 }
 
-#divB, #divD{
+#divB, #divC, #divD{
         width:28%;
         min-height: 120px;
         overflow: hidden;   
@@ -26,14 +26,6 @@
 	float:left;  
 }
 
-#divC{
-        width:28%;
-        min-height: 100px;
-        overflow: hidden;
-    	border:1px solid #CCCCCC;   
-	margin:20px;
-        float:left;
-}
 
 .botonAceptar{
         padding:10px 20px;

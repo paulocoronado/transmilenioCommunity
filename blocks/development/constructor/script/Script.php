@@ -8,6 +8,8 @@
 
 $indice = 0;
 $funcion [$indice ++] = "jquery.autocomplete.min.js";
+$funcion [$indice ++] = "sweetalert2.js";
+$funcion [$indice ++] = "promise.min.js";
 
 $rutaBloque = $this->miConfigurador->getVariableConfiguracion ( "host" );
 $rutaBloque .= $this->miConfigurador->getVariableConfiguracion ( "site" );

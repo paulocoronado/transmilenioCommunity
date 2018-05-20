@@ -38,23 +38,17 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= $prefijo . 'pagina ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'nombre LIKE \'%' . $_REQUEST['query'] . '%\' ';
+                $cadenaSql .= 'nombre LIKE \'' . $_REQUEST['query'] . '%\' ';
                 break;
 
             case 'consultarPagina' :
 
                 $cadenaSql = 'SELECT ';
-                $cadenaSql .= 'A.id_pagina ';
+                $cadenaSql .= 'id_pagina ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= $prefijo . 'pagina A ';
-                $cadenaSql .= 'LEFT JOIN ';
-                $cadenaSql .= $prefijo . 'bloque_pagina B ';
-                $cadenaSql .= 'ON ';
-                $cadenaSql .= 'A.id_pagina=B.id_pagina ';
+                $cadenaSql .= $prefijo . 'pagina ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'A.nombre =\'' . $_REQUEST['paginaMaestra'] . '\' ';
-                $cadenaSql .= 'AND ';
-                $cadenaSql .= 'B.id_pagina IS NULL';
+                $cadenaSql .= 'nombre =\'' . $_REQUEST['paginaMaestra'] . '\' ';
                 break;
 
             case 'consultarBloque' :
@@ -93,8 +87,17 @@ class Sql extends \Sql {
                 $cadenaSql .= "'" . $variable['seccion'] . "',";
                 $cadenaSql .= $variable['posicion'] . ')';
                 break;
+            
+            case 'borrarBloquePagina' :
+                $cadenaSql = 'DELETE FROM ';
+                $cadenaSql .= $prefijo . 'bloque_pagina ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'id_pagina='.$variable;
+                
+                break;
         }
 
+        
         return $cadenaSql;
     }
 

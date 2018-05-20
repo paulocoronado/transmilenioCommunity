@@ -110,6 +110,7 @@ if (isset ( $lenguaje )) {
 	$esteBloque = new Bloque ( $unBloque );
 }
 
+error_log(print_r($_REQUEST,true));
 $esteBloque->bloque ();
 
 ?>

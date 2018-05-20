@@ -34,13 +34,13 @@ class Estructurador {
         /**
          * @todo Por el momento solo está guardando páginas que no se encuentren registradas en el sistema
          */
-
+        
         if ($_REQUEST['paginaMaestra'] != '') {
-
+                
             $this->pagina = $this->consultar('pagina');
-
             if ($this->pagina != false) {
                 
+                $this->borrarBloquePagina();
                 $this->procesarSecciones();
                 
             }
@@ -49,10 +49,21 @@ class Estructurador {
         return true;
     }
     
+    function borrarBloquePagina(){
+
+        $cadenaSql = $this->miSql->getCadenaSql('borrarBloquePagina',$this->pagina);
+        $this->conexion->ejecutarAcceso($cadenaSql, 'borrar');
+        
+        return true;
+        
+    }
+    
     
     function procesarSecciones(){
         $json = str_replace("'", '"', $_REQUEST['misBloques']);
         $estructura = (json_decode($json, true));
+        
+       
 
         foreach ($estructura['bloques'] as $seccion) {
             foreach ($seccion as $bloque) {
@@ -69,7 +80,7 @@ class Estructurador {
     function guardar($bloque){
         
         $cadenaSql = $this->miSql->getCadenaSql('insertarBloquePagina',$bloque);
-        $this->resultadoItems = $this->conexion->ejecutarAcceso($cadenaSql, 'insertar');
+        $this->conexion->ejecutarAcceso($cadenaSql, 'insertar');
         
         return true;
         
